@@ -1,5 +1,5 @@
 // https://www.youtube.com/watch?v=J01rYl9T3BU
-// 1 hr  54' 19''
+// 2 hr  14' 19''
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
@@ -36,10 +36,8 @@ app.use('/api/v1/restaurants', restaurantsRouter);
 
 const port = process.env.PORT || 3005;
 
-const start = () => {
+const start =  () => {
 	try {
-		// DB
-		
 		app.listen(port, () => {
 			console.log(`Serving listening at port ${port}`);
 		});

@@ -1,6 +1,12 @@
 // CONTROLLERS
+const node_postgres = require('../db/postgres');
 
-const getAllRestaurants = (req, res) => {
+
+
+const getAllRestaurants = async (req, res) => {
+	const restaurants = await node_postgres.query("SELECT * FROM restaurants");
+	
+	console.log(restaurants);
 	
 	res.status(200).json({ msg: 'getAllRestaurants' });
 };

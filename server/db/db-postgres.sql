@@ -1,32 +1,34 @@
+-- https://node-postgres.com/guides/async-express
+-- https://www.postgresql.org/docs/
 -- Postgres PSQL commands
--- Help _____________________________ \?  
--- Show databases ___________________ \l
--- change to the/other database _____ \c
--- show tables in a database ________ \d
--- show the structure of a table ____ \d <table-name>
+-- Help _______________________________ \?  
+-- Show databases _____________________ \l
+-- change to the/other database _______ \c
+-- show tables in a database __________ \d
+-- show the structure of a table ______ \d <table-name>
+-- show current Roles at cluster ______ \du
+-- or SELECT rolname FROM pg_roles; ___
 -- 
--- 
--- 
--- quiting command line _____________ \q
+-- quiting command line _______________ \q
 -- 
 -- 
 
--- DROP DATABASE IF EXISTS yelp;
-CREATE DATABASE yelp;
+-- DROP DATABASE IF EXISTS yelp_clone;
+CREATE DATABASE yelp_clone;
 
-DROP TABLE restaurant;
-CREATE TABLE restaurant (
+DROP TABLE IF EXISTS restaurants;
+CREATE TABLE restaurants (
 	id BIGSERIAL NOT NULL PRIMARY KEY,
 	name VARCHAR(60) NOT NULL,
 	location VARCHAR(70) NOT NULL,
 	price_range INT NOT NULL check(price_range >= 1 and price_range <= 5)
 );
 
-CREATE TABLE yelp.review (
+CREATE TABLE review (
 
 );
 
-INSERT INTO restaurant (name, location, price_range) VALUES 
+INSERT INTO restaurants (name, location, price_range) VALUES 
 	('MacDonalds', 'New Youk', 3),
 	('pizza hut', 'Vegas', 3),
 	('wendys', 'denver', 3),
