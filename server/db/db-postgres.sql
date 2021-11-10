@@ -16,6 +16,11 @@
 CREATE USER mock_developer WITH PASSWORD 'password123';
 GRANT ALL PRIVILEGES ON DATABASE yelp_clone TO mock_developer;
 GRANT ALL PRIVILEGES ON TABLE restaurants TO mock_developer;
+SELECT * FROM information_schema.role_table_grants WHERE grantee='mock_developer';
+
+PGUSER=mock_developer
+PGPASSWORD=password123
+
 
 -- DROP DATABASE IF EXISTS yelp_clone;
 CREATE DATABASE yelp_clone;

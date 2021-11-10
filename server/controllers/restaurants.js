@@ -20,13 +20,27 @@ const getAllRestaurants = async (req, res) => {
 	}
 };
 
-
-const createRestaurant = (req, res) => {
+  
+const createRestaurant = async (req, res) => {
 	console.log('req.body = ', req.body);
 	
-	const restaurant = req.body;
+	const { name, location, price_range} = req.body;
 	
-	res.status(201).json({ msg: restaurant });
+	try {
+		// 'returning *' makes Postgres returns 
+		// the data from the query made
+		const result = await node_postgres.query("INSERT INTO restaurants (name, location, price_range) VALUES ($1, $2, $3) returning *", [name, location, price_range]);
+		
+		console.log(result);
+		
+		res.status(200).json({ 
+			data: {
+				restaurant: result.rows[0]
+			}
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 
@@ -50,15 +64,21 @@ const getRestaurant = async (req, res) => {
 		console.log(error);
 	}
 };
-
+ 
 
 const updateRestaurant = (req, res) => {
 	console.log('req.params = ', req.params);
 	console.log('req.body = ', req.body);
 	
-	const restaurant = req.body;
+	const { name, location, price_range} = req.body;
+	console.log(name, location, range);
 	
-	res.status(200).json({ msg: restaurant });
+	try {
+		 
+		res.status(200).json({ msg: restaurant });
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 
