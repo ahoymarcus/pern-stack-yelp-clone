@@ -13,6 +13,10 @@
 -- 
 -- 
 
+CREATE USER mock_developer WITH PASSWORD 'password123';
+GRANT ALL PRIVILEGES ON DATABASE yelp_clone TO mock_developer;
+GRANT ALL PRIVILEGES ON TABLE restaurants TO mock_developer;
+
 -- DROP DATABASE IF EXISTS yelp_clone;
 CREATE DATABASE yelp_clone;
 

@@ -4,11 +4,20 @@ const node_postgres = require('../db/postgres');
 
 
 const getAllRestaurants = async (req, res) => {
-	const restaurants = await node_postgres.query("SELECT * FROM restaurants");
-	
-	console.log(restaurants);
-	
-	res.status(200).json({ msg: 'getAllRestaurants' });
+	try {
+		const result = await node_postgres.query("SELECT * FROM restaurants");
+		
+		//console.log(result);
+		
+		res.status(200).json({ 
+			data: {
+				count: result.rows.length,
+				restaurants: result.rows 
+			}
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 
@@ -21,10 +30,25 @@ const createRestaurant = (req, res) => {
 };
 
 
-const getRestaurant = (req, res) => {
+const getRestaurant = async (req, res) => {
 	console.log('req.params = ', req.params);
 	
-	res.status(200).json({ msg: 'getRestaurant' });
+	const restaurantId = req.params.id;
+	console.log('restaurantId = ', restaurantId);
+	
+	try {
+		// ATENTION: never use Template String
+		// because of sql injections
+		const result = await node_postgres.query("SELECT * FROM restaurants WHERE id = $1", [restaurantId]);
+		
+		res.status(200).json({ 
+			data: {
+				restaurant: result.rows[0]
+			}
+		});
+	} catch (error) {
+		console.log(error);
+	}
 };
 
 
