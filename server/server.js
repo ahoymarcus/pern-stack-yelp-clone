@@ -10,12 +10,12 @@ const restaurantsRouter = require('./routes/restaurants');
 
 const app = express();
 
+app.use(morgan('dev'));
 app.use(express.json());
-app.use(morgan('tiny'));
 
 
 app.use((req, res, next) => {
-	console.log('\n### YEAH! Our own middleware........');
+	console.log('\n### YEAH! Our own costumized middleware...........');
 	
 	next();
 });
@@ -36,9 +36,21 @@ app.use('/api/v1/restaurants', restaurantsRouter);
 
 const port = process.env.PORT || 3005;
 
-app.listen(port, () => {
-	console.log(`Serving listening at port ${port}`);
-});
+const start = () => {
+	try {
+		// DB
+		
+		app.listen(port, () => {
+			console.log(`Serving listening at port ${port}`);
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+
+
+start();
 
 
 

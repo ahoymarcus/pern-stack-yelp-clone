@@ -7,8 +7,11 @@ const getAllRestaurants = (req, res) => {
 
 
 const createRestaurant = (req, res) => {
+	console.log('req.body = ', req.body);
 	
-	res.status(201).json({ msg: 'createRestaurant' });
+	const restaurant = req.body;
+	
+	res.status(201).json({ msg: restaurant });
 };
 
 
@@ -21,16 +24,18 @@ const getRestaurant = (req, res) => {
 
 const updateRestaurant = (req, res) => {
 	console.log('req.params = ', req.params);
+	console.log('req.body = ', req.body);
 	
+	const restaurant = req.body;
 	
-	res.status(200).json({ msg: 'updateRestaurant' });
+	res.status(200).json({ msg: restaurant });
 };
 
 
 const deleteRestaurant = (req, res) => {
 	console.log('req.params = ', req.params);
 	
-	res.status(200).json({ msg: 'deleteRestaurant' });
+	res.status(204).json({ status: 'success' });
 };
 
 
