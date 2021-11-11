@@ -24,16 +24,12 @@ Para melhorar um pouco mais da estrutura do projeto, a parte referente ao backen
 
 Dependências Backend:
 
-- Axios
 - Cors
 - Dotenv
 - Express JS
 - Morgan
 - Nodemon
 - Pg
-- React-JS
-- React-dom
-- React-router-dom
 
 
 
