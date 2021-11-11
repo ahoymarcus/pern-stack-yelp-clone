@@ -1,11 +1,14 @@
 # PERN Stack Yelp Clone App - Freecodecamp.org
 
 
-Estudo de Javascript Fullstack  com Node-JS e Express-JS no backend, React-JS no Frontend e o banco de dados Postgres. Trata-se de um projeto trazido pelo **Freecodecamp** e pelo professor **Sanjeev Thiyagarajan**.[^1]
-
+Estudo da stack de Javascript com Node-JS e Express-JS no backend, React-JS no Frontend e o banco de dados Postgres. Trata-se de um projeto levado à frente por **Freecodecamp** e pelo professor **Sanjeev Thiyagarajan**.[^1]
 
 <br />
 
+Para melhorar um pouco mais da estrutura do projeto, a parte referente ao backend foi modularizada, separando modulos específicos para as rotas de restaurantes e para os controles das rotas de restaurantes.
+
+
+<br />
 
 
 
@@ -27,6 +30,7 @@ Dependências Backend:
 - Morgan
 - Nodemon
 - Pg
+- React-JS
 
 
 Dependências Frontend:
