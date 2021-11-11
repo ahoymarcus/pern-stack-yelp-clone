@@ -24,6 +24,7 @@ Para melhorar um pouco mais da estrutura do projeto, a parte referente ao backen
 
 Dependências Backend:
 
+- Axios
 - Cors
 - Dotenv
 - Express JS
@@ -31,19 +32,8 @@ Dependências Backend:
 - Nodemon
 - Pg
 - React-JS
-
-
-Dependências Frontend:
-
-- @testing-library/jest-dom
-- @testing-library/react
-- @testing-library/user-event
-- axios
-- React
 - React-dom
 - React-router-dom
-- React-scripts
-
 
 
 

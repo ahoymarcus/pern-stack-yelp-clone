@@ -20,10 +20,10 @@ app.use((req, res, next) => {
 	next();
 });
 
-
+ 
 
 app.get('/', (req, res) => {
-	res.send("<h1>Hello Yelp-clone</h1><a href=''>Yelp-Clone App</a>")
+	res.send("<h1>Hello Yelp-clone</h1><a href='http://localhost:3000'>Yelp-Clone App</a>")
 });
 
 
